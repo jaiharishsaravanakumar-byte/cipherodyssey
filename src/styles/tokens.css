@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --bg-void: #0A0E14;
+  --bg-panel: #111826;
+  --ink-primary: #E8ECF1;
+  --ink-dim: #5C6B7A;
+  --signal-amber: #E8A33D;
+  --signal-cyan: #4FD1C5;
+  --signal-red: #E5484D;
+}
+
+@theme {
+  --color-void: var(--bg-void);
+  --color-panel: var(--bg-panel);
+  --color-bg-void: var(--bg-void);
+  --color-bg-panel: var(--bg-panel);
+  --color-ink-primary: var(--ink-primary);
+  --color-ink-dim: var(--ink-dim);
+  --color-signal-amber: var(--signal-amber);
+  --color-signal-cyan: var(--signal-cyan);
+  --color-signal-red: var(--signal-red);
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  background-color: var(--bg-void);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.micro-transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lab-grid {
+  background-image: 
+    linear-gradient(to right, rgba(92, 107, 122, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(92, 107, 122, 0.16) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0;
+  animation: labGridPan 45s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes labGridPan {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 40px;
+  }
+}
+
+.hover-glow-amber {
+  transition: box-shadow 150ms ease, opacity 150ms ease;
+}
+.hover-glow-amber:hover {
+  box-shadow: 0 0 16px -1px rgba(232, 163, 61, 0.35);
+}
+
+.hover-glow-cyan {
+  transition: box-shadow 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+.hover-glow-cyan:hover {
+  box-shadow: 0 0 16px -1px rgba(79, 209, 197, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .lab-grid {
+    animation: none !important;
+  }
+}
