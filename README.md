@@ -326,10 +326,3 @@ The compiled assets will be placed in the `/dist` directory, ready to be deploye
 - **Backend:** [Node.js 24](https://nodejs.org/), [Express 4](https://expressjs.com/), [Mongoose 8](https://mongoosejs.com/), [MongoDB](https://www.mongodb.com/)
 - **Fonts:** [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) & [Inter](https://fonts.google.com/specimen/Inter)
 
----
-
-## Additional Documentation
-
-For deeper architectural analysis, check out:
-- **[DOCUMENTATION.md](file:///home/sjh/cipher/DOCUMENTATION.md)** — Comprehensive technical manual, flowcharts, database connection guides, and step-by-step setup details.
-- **[FILE_CALLS.md](file:///home/sjh/cipher/FILE_CALLS.md)** — Exhaustive file-to-file calling maps, sequence diagrams, and caller/callee matrices across frontend, backend, and database.
