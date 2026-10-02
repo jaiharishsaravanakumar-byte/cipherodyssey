@@ -9,7 +9,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-24-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.0-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-8.0-47A248?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Tests](https://img.shields.io/badge/Tests-35%20Passing-brightgreen?style=flat)](https://nodejs.org/api/test.html)
+[![Tests](https://img.shields.io/badge/Tests-36%20Passing-brightgreen?style=flat)](https://nodejs.org/api/test.html)
 
 ---
 
@@ -21,7 +21,9 @@ Instead of clichéd neon-green terminal matrix aesthetics, CipherOdyssey is styl
 
 - **Touch and tweak the machinery:** Drag cipher wheels, invert Atbash mirrors, align Vigenère tableaus, zigzag letters across rail fences, and construct Playfair matrices in real time.
 - **Learn step-by-step:** Each cipher includes its historical origin, cryptographic weaknesses, and step-by-step encryption/decryption walkthroughs.
-- **Single-page vertical flow:** Seamlessly jump between the hero briefing, the cipher deck, the interactive laboratory, live challenges, and your career telemetry without jarring page reloads.
+- **Single-page vertical flow:** Seamlessly jump between the hero briefing, the cipher deck, the interactive laboratory, the pipeline workbench, the strength comparison analyzer, live challenges, and your career telemetry — all without page reloads.
+- **Chain ciphers into a pipeline:** Combine any three ciphers in sequence and watch the ciphertext travel through each transformation stage.
+- **Compare cipher resistance:** Run one message through all 10 ciphers simultaneously and inspect an educational resistance score for each.
 - **Crack live transmissions:** Test your skills in the Challenge Arena with randomized difficulty tiers, progressive hint disclosure, and score multipliers.
 - **Follow a skill tree (DAG):** Unlock more advanced polyalphabetic and transposition ciphers as you master fundamental substitution techniques.
 
@@ -48,33 +50,46 @@ CipherOdyssey covers 10 iconic historical ciphers across four major families:
 
 ## Application Structure (Single-Page Layout)
 
-CipherOdyssey is built as a single-page scrolling application. Everything is organized into five sequential sections:
+CipherOdyssey is built as a single-page scrolling application. Everything is organized into seven sequential sections:
 
 ```text
-┌────────────────────────────────────────────────────────────────────────┐
-│  Sticky Navbar: [CO] CipherOdyssey   Home · Ciphers · Lab · Challenge · Progress  │
-├────────────────────────────────────────────────────────────────────────┤
-│  #hero        • Animated particle canvas & typewriter hero headline    │
-│               • Quick-jump action buttons                              │
-├────────────────────────────────────────────────────────────────────────┤
-│  #ciphers     • The Cipher Deck: 10 interactive cipher cards           │
-│               • Toggleable SVG Directed Acyclic Graph (DAG) skill tree │
-├────────────────────────────────────────────────────────────────────────┤
-│  #lab         • The Laboratory Workbench                               │
-│               • Quick-selector pill bar across all 10 ciphers          │
-│               • Active interactive demo + Theory + Walkthroughs        │
-│               • TryItYourself live scratchpad with instant mastery     │
-├────────────────────────────────────────────────────────────────────────┤
-│  #challenge   • Intercepted Transmissions Arena                        │
-│               • Difficulty selector (Easy / Medium / Hard)             │
-│               • Heart meter (5 lives), hint drawer (-20 pts), popups   │
-├────────────────────────────────────────────────────────────────────────┤
-│  #progress    • Agent Telemetry Dashboard                              │
-│               • Solves count, accuracy rate, best streak, masteries    │
-│               • Achievement badge shelf with celebrate burst modal     │
-├────────────────────────────────────────────────────────────────────────┤
-│  Footer       • System status, quick section jumps, Back-to-Top (↑)    │
-└────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Sticky Navbar: [CO] CipherOdyssey  Home · Ciphers · Lab · Pipeline ·      │
+│                                     Compare · Challenge · Progress          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  #hero        • Animated particle canvas & typewriter hero headline        │
+│               • Quick-jump action buttons                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  #ciphers     • The Cipher Deck: 10 interactive cipher cards               │
+│               • Toggleable SVG Directed Acyclic Graph (DAG) skill tree     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  #lab         • The Laboratory Workbench                                    │
+│               • Quick-selector pill bar across all 10 ciphers              │
+│               • Active interactive demo + Theory + Walkthroughs            │
+│               • TryItYourself live scratchpad with instant mastery         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  #pipeline    • Cipher Pipeline                                             │
+│               • Select 3 ciphers and configure their parameters            │
+│               • Run Pipeline → animated stage-by-stage transformation      │
+│               • Visual connectors show how output feeds into next stage    │
+│               • Final Ciphertext display with Copy / Run Again / Clear     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  #compare     • Cipher Strength Comparison                                  │
+│               • Enter one message — compare all 10 ciphers simultaneously  │
+│               • Animated resistance bars with educational score 0–100      │
+│               • Toggle to include your active 3-cipher pipeline            │
+│               • Expandable "Why this score?" accordion per cipher          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  #challenge   • Intercepted Transmissions Arena                             │
+│               • Difficulty selector (Easy / Medium / Hard)                 │
+│               • Heart meter (5 lives), hint drawer (-20 pts), popups       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  #progress    • Agent Telemetry Dashboard                                   │
+│               • Solves count, accuracy rate, best streak, masteries        │
+│               • Achievement badge shelf with celebrate burst modal         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  Footer       • System status, quick section jumps, Back-to-Top (↑)        │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 - **Smooth Navigation:** Clicking any navbar tab, CTA button, or cipher card smoothly scrolls straight to the relevant section with fixed navbar offset compensation.

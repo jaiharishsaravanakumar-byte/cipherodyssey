@@ -6,6 +6,8 @@ const NAV_ITEMS = [
   { id: 'hero', label: 'Home' },
   { id: 'ciphers', label: 'Ciphers' },
   { id: 'lab', label: 'Laboratory' },
+  { id: 'pipeline', label: 'Pipeline' },
+  { id: 'compare', label: 'Compare' },
   { id: 'challenge', label: 'Challenge' },
   { id: 'progress', label: 'Progress' },
 ];

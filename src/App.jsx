@@ -3,9 +3,11 @@ import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import Learn from './pages/Learn.jsx';
 import CipherDetails from './pages/CipherDetails.jsx';
+import CipherPipeline from './pages/CipherPipeline.jsx';
+import CipherComparison from './pages/CipherComparison.jsx';
 import Challenge from './pages/Challenge.jsx';
 import Progress from './pages/Progress.jsx';
-import { ArrowUp, Terminal, Shield } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -29,7 +31,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    const sectionIds = ['hero', 'ciphers', 'lab', 'challenge', 'progress'];
+    const sectionIds = ['hero', 'ciphers', 'lab', 'pipeline', 'compare', 'challenge', 'progress'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140;
@@ -63,6 +65,14 @@ export default function App() {
 
         <section id="lab" className="relative border-b border-ink-dim/10 bg-panel/30">
           <CipherDetails activeCipherId={selectedCipher} onSelectCipher={setSelectedCipher} />
+        </section>
+
+        <section id="pipeline" className="relative border-b border-ink-dim/10">
+          <CipherPipeline />
+        </section>
+
+        <section id="compare" className="relative border-b border-ink-dim/10 bg-panel/30">
+          <CipherComparison />
         </section>
 
         <section id="challenge" className="relative border-b border-ink-dim/10">
@@ -104,6 +114,20 @@ export default function App() {
               className="hover:text-signal-amber cursor-pointer transition-colors"
             >
               Laboratory
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('pipeline')}
+              className="hover:text-signal-amber cursor-pointer transition-colors"
+            >
+              Pipeline
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('compare')}
+              className="hover:text-signal-amber cursor-pointer transition-colors"
+            >
+              Compare
             </button>
             <button
               type="button"
